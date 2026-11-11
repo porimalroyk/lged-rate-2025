@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGED Schedule of Rates - 2025 (Rate Finder)</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="bg-emerald-700 text-white rounded-xl p-6 shadow-lg mb-8 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">স্থানীয় সরকার প্রকৌশল অধিদপ্তর (LGED)</h1>
+            <p class="text-emerald-100 text-lg">Schedule of Rates - 2022 [3rd Edition, August 2025]</p>
+            <p class="text-xs text-emerald-200 mt-2">পরিচালনায়: কর্ণ কম্পিউটার ট্রেনিং ইনস্টিটিউট</p>
+        </header>
+
+        <!-- Search & Filter Section -->
+        <div class="bg-white rounded-xl p-6 shadow-sm mb-8 border border-slate-200">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="searchInput" class="block text-sm font-semibold text-slate-700 mb-2">আইটেম কোড বা বিবরণ দিয়ে খুঁজুন:</label>
+                    <input type="text" id="searchInput" placeholder="যেমন: 1.01.01 বা Box Cutting বা Earth work..." 
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                </div>
+                <div>
+                    <label for="zoneSelect" class="block text-sm font-semibold text-slate-700 mb-2">জোন (Zone) নির্বাচন করুন:</label>
+                    <select id="zoneSelect" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                        <option value="zoneA">Zone-A (ঢাকা ও ময়মনসিংহ বিভাগ)</option>
+                        <option value="zoneB">Zone-B (চট্টগ্রাম ও সিলেট বিভাগ)</option>
+                        <option value="zoneC">Zone-C (রাজশাহী ও রংপুর বিভাগ)</option>
+                        <option value="zoneD">Zone-D (খুলনা ও বরিশাল বিভাগ)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Table Section -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-100 text-slate-700 uppercase text-xs tracking-wider">
+                        <tr>
+                            <th class="py-4 px-6 border-b">আইটেম কোড</th>
+                            <th class="py-4 px-6 border-b">বিবরণ (Description)</th>
+                            <th class="py-4 px-6 border-b">একক (Unit)</th>
+                            <th class="py-4 px-6 border-b text-right">দর (টাকা)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rateTableBody" class="divide-y divide-slate-200 text-sm">
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="noResults" class="hidden p-8 text-center text-slate-500">
+                কোনো মিলে যাওয়া তথ্য পাওয়া যায়নি। সঠিক কোড বা শব্দ লিখে আবার চেষ্টা করুন।
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        // Sample dataset extracted from the LGED Schedule of Rates (August 2025)
+        const rateData = [
+            { code: "1.01.01", desc: "Engineer's site office of minimum 10 sqm plinth area with necessary facilities.", unit: "job", zoneA: 51705.44, zoneB: 51705.44, zoneC: 51705.44, zoneD: 51705.44 },
+            { code: "1.01.02", desc: "Engineer's site office of minimum 15 sqm plinth area with furniture, water purifier etc.", unit: "job", zoneA: 82602.50, zoneB: 82602.50, zoneC: 82602.50, zoneD: 82602.50 },
+            { code: "1.01.03", desc: "Engineer's site office of minimum 38 sqm plinth area with AC, PC, Printer, UPS etc.", unit: "job", zoneA: 500661.39, zoneB: 500661.39, zoneC: 500661.39, zoneD: 500661.39 },
+            { code: "1.02", desc: "Project Profile Signboard (1800mm x 1200mm)", unit: "sqm", zoneA: 17341.55, zoneB: 17293.32, zoneC: 17220.96, zoneD: 17220.96 },
+            { code: "1.03", desc: "Supplying of first aid box with necessary materials/medicine", unit: "each", zoneA: 16665.42, zoneB: 16665.42, zoneC: 16665.42, zoneD: 16665.42 },
+            { code: "2.01.1", desc: "C&G (Clearing and Grubbing) including cutting, removing and disposing", unit: "sqm", zoneA: 41.16, zoneB: 41.16, zoneC: 41.12, zoneD: 41.12 },
+            { code: "2.02.1.1", desc: "Earth work in road embankment up to 1.5m lift (Initial lift)", unit: "cum", zoneA: 206.58, zoneB: 202.47, zoneC: 188.08, zoneD: 188.08 },
+            { code: "2.02.2.02", desc: "Earth filling work (AE) with 95% Compaction", unit: "cum", zoneA: 415.46, zoneB: 411.42, zoneC: 395.03, zoneD: 395.03 },
+            { code: "3.01.2", desc: "Earth work in box cutting on road crest up to 150mm depth", unit: "sqm", zoneA: 34.68, zoneB: 34.05, zoneC: 31.53, zoneD: 31.53 },
+            { code: "3.02.1.1", desc: "Sand (FM 0.50) filling on road bed in improved sub-grade", unit: "cum", zoneA: 971.19, zoneB: 978.63, zoneC: 964.89, zoneD: 964.89 },
+            { code: "3.03.3.1", desc: "Compacted aggregate sand sub-base course (38mm down brick chips & FM 0.50 sand)", unit: "cum", zoneA: 4479.59, zoneB: 4471.34, zoneC: 4301.91, zoneD: 4301.91 },
+            { code: "3.04.3.1", desc: "Brick on end edging (75 mm across) with fine sand (FM 0.80)", unit: "m", zoneA: 171.59, zoneB: 170.98, zoneC: 164.36, zoneD: 164.36 },
+            { code: "3.06.4.1.01", desc: "25mm thick compacted pre-mixed bituminous carpeting (Retail)", unit: "sqm", zoneA: 592.49, zoneB: 590.33, zoneC: 577.60, zoneD: 584.18 },
+            { code: "3.08.4.2", desc: "Single layer brick flat soling (BFS) with sand (FM 0.80)", unit: "sqm", zoneA: 689.64, zoneB: 686.56, zoneC: 656.75, zoneD: 656.75 },
+            { code: "3.08.5.2", desc: "Brick on edge pavement in herring bone bond (HBB) with sand (FM 0.80)", unit: "sqm", zoneA: 1120.28, zoneB: 1117.19, zoneC: 1067.86, zoneD: 1067.86 },
+            { code: "3.09.15.01", desc: "Uni-Block Paver 60mm thick, Gray, Min Compressive Strength 25MPa", unit: "sqm", zoneA: 1148.12, zoneB: 1142.58, zoneC: 1130.61, zoneD: 1129.82 }
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const zoneSelect = document.getElementById('zoneSelect');
+        const rateTableBody = document.getElementById('rateTableBody');
+        const noResults = document.getElementById('noResults');
+
+        function renderTable() {
+            const query = searchInput.value.toLowerCase().trim();
+            const selectedZone = zoneSelect.value;
+            
+            rateTableBody.innerHTML = '';
+
+            const filteredData = rateData.filter(item => {
+                return item.code.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
+            });
+
+            if (filteredData.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            filteredData.forEach(item => {
+                let rate = item.zoneA;
+                if(selectedZone === 'zoneB') rate = item.zoneB;
+                if(selectedZone === 'zoneC') rate = item.zoneC;
+                if(selectedZone === 'zoneD') rate = item.zoneD;
+
+                const row = document.createElement('tr');
+                row.className = "hover:bg-slate-50 transition-colors";
+                row.innerHTML = `
+                    <td class="py-3 px-6 border-b font-mono font-medium text-emerald-700">${item.code}</td>
+                    <td class="py-3 px-6 border-b text-slate-700">${item.desc}</td>
+                    <td class="py-3 px-6 border-b text-slate-500">${item.unit}</td>
+                    <td class="py-3 px-6 border-b text-right font-semibold text-slate-900">৳ ${rate.toLocaleString('en-IN', {minimumFractionDigits: 2})}</td>
+                `;
+                rateTableBody.appendChild(row);
+            });
+        }
+
+        searchInput.addEventListener('input', renderTable);
+        zoneSelect.addEventListener('change', renderTable);
+
+        // Initial render
+        renderTable();
+    </script>
+</body>
+</html>
