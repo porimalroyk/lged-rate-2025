@@ -1,0 +1,4 @@
+[
+  { "code": "1.01.01", "desc": "Engineer's site office of minimum 10 sqm plinth area with necessary facilities.", "unit": "job", "zoneA": 51705.44, "zoneB": 51705.44, "zoneC": 51705.44, "zoneD": 51705.44 },
+  { "code": "2.02.1.1", "desc": "Earth work in road embankment up to 1.5m lift (Initial lift)", "unit": "cum", "zoneA": 206.58, "zoneB": 202.47, "zoneC": 188.08, "zoneD": 188.08 }
+]
