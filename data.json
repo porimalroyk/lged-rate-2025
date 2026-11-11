@@ -1,4 +1,299 @@
 [
-  { "code": "1.01.01", "desc": "Engineer's site office of minimum 10 sqm plinth area with necessary facilities.", "unit": "job", "zoneA": 51705.44, "zoneB": 51705.44, "zoneC": 51705.44, "zoneD": 51705.44 },
-  { "code": "2.02.1.1", "desc": "Earth work in road embankment up to 1.5m lift (Initial lift)", "unit": "cum", "zoneA": 206.58, "zoneB": 202.47, "zoneC": 188.08, "zoneD": 188.08 }
+  {
+    "code": "1.01.01",
+    "desc": "Engineer's site office of minimum 10 sqm plinth area with necessary facilities.",
+    "unit": "job",
+    "zoneA": 51705.44,
+    "zoneB": 51705.44,
+    "zoneC": 51705.44,
+    "zoneD": 51705.44
+  },
+  {
+    "code": "1.01.02",
+    "desc": "Engineer's site office of minimum 15 sqm plinth area with furniture, water purifier etc.",
+    "unit": "job",
+    "zoneA": 82602.5,
+    "zoneB": 82602.5,
+    "zoneC": 82602.5,
+    "zoneD": 82602.5
+  },
+  {
+    "code": "1.01.03",
+    "desc": "Engineer's site office of minimum 38 sqm plinth area with AC, PC, Printer, UPS etc.",
+    "unit": "job",
+    "zoneA": 500661.39,
+    "zoneB": 500661.39,
+    "zoneC": 500661.39,
+    "zoneD": 500661.39
+  },
+  {
+    "code": "1.02",
+    "desc": "Project Profile Signboard (1800mm x 1200mm)",
+    "unit": "sqm",
+    "zoneA": 17341.55,
+    "zoneB": 17293.32,
+    "zoneC": 17220.96,
+    "zoneD": 17220.96
+  },
+  {
+    "code": "1.03",
+    "desc": "Supplying of first aid box with necessary materials/medicine",
+    "unit": "each",
+    "zoneA": 16665.42,
+    "zoneB": 16665.42,
+    "zoneC": 16665.42,
+    "zoneD": 16665.42
+  },
+  {
+    "code": "1.04",
+    "desc": "Hiring, installation, testing & commissioning of CCTV/Surveillance facilities",
+    "unit": "job",
+    "zoneA": 50444.36,
+    "zoneB": 50444.36,
+    "zoneC": 50444.36,
+    "zoneD": 50444.36
+  },
+  {
+    "code": "1.05",
+    "desc": "Mobilization and cleaning site before commencing actual physical work",
+    "unit": "sqm",
+    "zoneA": 224.06,
+    "zoneB": 219.94,
+    "zoneC": 203.5,
+    "zoneD": 203.5
+  },
+  {
+    "code": "1.08",
+    "desc": "Bench Mark Pillar: Manufacturing, supplying & fixing in position RCC (1:2:4)",
+    "unit": "each",
+    "zoneA": 1399.01,
+    "zoneB": 1393.53,
+    "zoneC": 1358.5,
+    "zoneD": 1358.5
+  },
+  {
+    "code": "1.10.01",
+    "desc": "Videography: Within 50 kilometer from district head quarter for full day",
+    "unit": "day",
+    "zoneA": 1740.33,
+    "zoneB": 1740.33,
+    "zoneC": 1740.33,
+    "zoneD": 1740.33
+  },
+  {
+    "code": "1.11",
+    "desc": "Photography: Shooting of still photographs by professional photographer",
+    "unit": "hour",
+    "zoneA": 454.0,
+    "zoneB": 454.0,
+    "zoneC": 454.0,
+    "zoneD": 454.0
+  },
+  {
+    "code": "1.13",
+    "desc": "Temporary Toilet: Construction of temporary toilets in work site",
+    "unit": "each",
+    "zoneA": 13241.67,
+    "zoneB": 13241.67,
+    "zoneC": 13241.67,
+    "zoneD": 13241.67
+  },
+  {
+    "code": "1.15",
+    "desc": "Supplying of Best Quality Safety hand gloves for construction work",
+    "unit": "each",
+    "zoneA": 315.28,
+    "zoneB": 315.28,
+    "zoneC": 315.28,
+    "zoneD": 315.28
+  },
+  {
+    "code": "1.16",
+    "desc": "Supplying, fitting and fixing 18mm thick marble Name plate",
+    "unit": "sqm",
+    "zoneA": 8736.27,
+    "zoneB": 8729.97,
+    "zoneC": 8551.52,
+    "zoneD": 8551.52
+  },
+  {
+    "code": "2.01.1",
+    "desc": "C&G (Clearing and Grubbing) including cutting, removing and disposing",
+    "unit": "sqm",
+    "zoneA": 41.16,
+    "zoneB": 41.16,
+    "zoneC": 41.12,
+    "zoneD": 41.12
+  },
+  {
+    "code": "2.02.1.1",
+    "desc": "Earth work in road embankment up to 1.5m lift (Initial lift)",
+    "unit": "cum",
+    "zoneA": 206.58,
+    "zoneB": 202.47,
+    "zoneC": 188.08,
+    "zoneD": 188.08
+  },
+  {
+    "code": "2.02.2.02",
+    "desc": "Earth filling work (AE) with 95% Compaction",
+    "unit": "cum",
+    "zoneA": 415.46,
+    "zoneB": 411.42,
+    "zoneC": 395.03,
+    "zoneD": 395.03
+  },
+  {
+    "code": "3.01.2",
+    "desc": "Earth work in box cutting on road crest up to 150mm depth",
+    "unit": "sqm",
+    "zoneA": 34.68,
+    "zoneB": 34.05,
+    "zoneC": 31.53,
+    "zoneD": 31.53
+  },
+  {
+    "code": "3.02.1.1",
+    "desc": "Sand (FM 0.50) filling on road bed in improved sub-grade",
+    "unit": "cum",
+    "zoneA": 971.19,
+    "zoneB": 978.63,
+    "zoneC": 964.89,
+    "zoneD": 964.89
+  },
+  {
+    "code": "3.03.3.1",
+    "desc": "Compacted aggregate sand sub-base course (38mm down brick chips & FM 0.50 sand)",
+    "unit": "cum",
+    "zoneA": 4479.59,
+    "zoneB": 4471.34,
+    "zoneC": 4301.91,
+    "zoneD": 4301.91
+  },
+  {
+    "code": "3.04.3.1",
+    "desc": "Brick on end edging (75 mm across) with fine sand (FM 0.80)",
+    "unit": "m",
+    "zoneA": 171.59,
+    "zoneB": 170.98,
+    "zoneC": 164.36,
+    "zoneD": 164.36
+  },
+  {
+    "code": "3.06.4.1.01",
+    "desc": "25mm thick compacted pre-mixed bituminous carpeting (Retail)",
+    "unit": "sqm",
+    "zoneA": 592.49,
+    "zoneB": 590.33,
+    "zoneC": 577.6,
+    "zoneD": 584.18
+  },
+  {
+    "code": "3.08.4.2",
+    "desc": "Single layer brick flat soling (BFS) with sand (FM 0.80)",
+    "unit": "sqm",
+    "zoneA": 689.64,
+    "zoneB": 686.56,
+    "zoneC": 656.75,
+    "zoneD": 656.75
+  },
+  {
+    "code": "3.08.5.2",
+    "desc": "Brick on edge pavement in herring bone bond (HBB) with sand (FM 0.80)",
+    "unit": "sqm",
+    "zoneA": 1120.28,
+    "zoneB": 1117.19,
+    "zoneC": 1067.86,
+    "zoneD": 1067.86
+  },
+  {
+    "code": "3.09.15.01",
+    "desc": "Uni-Block Paver 60mm thick, Gray, Min Compressive Strength 25MPa",
+    "unit": "sqm",
+    "zoneA": 1148.12,
+    "zoneB": 1142.58,
+    "zoneC": 1130.61,
+    "zoneD": 1129.82
+  },
+  {
+    "code": "4.01.01",
+    "desc": "Dismantling of existing/ damaged structures including disposal of debris",
+    "unit": "cum",
+    "zoneA": 1250.5,
+    "zoneB": 1250.5,
+    "zoneC": 1220.0,
+    "zoneD": 1220.0
+  },
+  {
+    "code": "4.02.01",
+    "desc": "Driven RCC Pile casting and driving 300mm x 300mm pre-cast pile",
+    "unit": "m",
+    "zoneA": 2145.8,
+    "zoneB": 2130.0,
+    "zoneC": 2100.5,
+    "zoneD": 2100.5
+  },
+  {
+    "code": "4.03.01",
+    "desc": "Bored Cast-in-situ RCC Pile 600mm dia including casting and boring",
+    "unit": "m",
+    "zoneA": 5420.25,
+    "zoneB": 5400.0,
+    "zoneC": 5350.0,
+    "zoneD": 5350.0
+  },
+  {
+    "code": "4.05.01",
+    "desc": "RCC Works (1:1.5:3) in abutment, pier, and deck slab with stone chips",
+    "unit": "cum",
+    "zoneA": 11850.4,
+    "zoneB": 11750.0,
+    "zoneC": 11500.2,
+    "zoneD": 11500.2
+  },
+  {
+    "code": "5.01.1",
+    "desc": "Earth work in excavation in foundation trenches in ordinary soil",
+    "unit": "cum",
+    "zoneA": 165.4,
+    "zoneB": 160.2,
+    "zoneC": 150.1,
+    "zoneD": 150.1
+  },
+  {
+    "code": "5.03.1",
+    "desc": "Mass Concrete (CC 1:3:6) with brick chips in foundation",
+    "unit": "cum",
+    "zoneA": 6450.8,
+    "zoneB": 6400.0,
+    "zoneC": 6250.5,
+    "zoneD": 6250.5
+  },
+  {
+    "code": "5.04.1",
+    "desc": "Reinforced Cement Concrete (RCC 1:2:4) works in foundation and columns",
+    "unit": "cum",
+    "zoneA": 11200.5,
+    "zoneB": 11100.0,
+    "zoneC": 10900.25,
+    "zoneD": 10900.25
+  },
+  {
+    "code": "5.06.1",
+    "desc": "Brick work with 1st class bricks in 1:6 cement mortar in superstructure",
+    "unit": "cum",
+    "zoneA": 8950.3,
+    "zoneB": 8900.0,
+    "zoneC": 8700.5,
+    "zoneD": 8700.5
+  },
+  {
+    "code": "5.09.1",
+    "desc": "12mm thick cement plaster (1:4) on brick wall surface",
+    "unit": "sqm",
+    "zoneA": 185.6,
+    "zoneB": 182.0,
+    "zoneC": 178.5,
+    "zoneD": 178.5
+  }
 ]
