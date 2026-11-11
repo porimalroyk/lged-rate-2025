@@ -74,7 +74,7 @@
         const noResults = document.getElementById('noResults');
         const itemCount = document.getElementById('itemCount');
 
-        // Fetch the complete dataset from an external JSON file
+        // Fetch data.json from the repository
         async function loadData() {
             try {
                 const response = await fetch('data.json');
@@ -106,10 +106,7 @@
                 itemCount.innerText = `প্রদর্শিত আইটেম: ${filteredData.length}টি (মোট: ${rateData.length}টি)`;
             }
 
-            // Performance optimization: Render top 100 results if search is empty or broad
-            const displayData = filteredData.slice(0, 150);
-
-            displayData.forEach(item => {
+            filteredData.forEach(item => {
                 let rate = item.zoneA;
                 if(selectedZone === 'zoneB') rate = item.zoneB;
                 if(selectedZone === 'zoneC') rate = item.zoneC;
@@ -125,18 +122,11 @@
                 `;
                 rateTableBody.appendChild(row);
             });
-            
-            if(filteredData.length > 150) {
-                const infoRow = document.createElement('tr');
-                infoRow.innerHTML = `<td colspan="4" class="py-3 text-center text-xs text-slate-400 bg-slate-50">আরও ফলাফল দেখতে নির্দিষ্ট করে সার্চ করুন (প্রথম ১৫০টি দেখানো হচ্ছে)...</td>`;
-                rateTableBody.appendChild(infoRow);
-            }
         }
 
         searchInput.addEventListener('input', renderTable);
         zoneSelect.addEventListener('change', renderTable);
 
-        // Load data on page start
         loadData();
     </script>
 </body>
