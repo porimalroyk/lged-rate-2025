@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডেটা সার্চ করুন</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input[type="text"] { width: 70%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #result { margin-top: 20px; background: #f1f1f1; padding: 15px; border-radius: 4px; white-space: pre-wrap; font-family: monospace; max-height: 400px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>একটি নির্দিষ্ট তথ্য সার্চ করুন</h2>
+    <input type="text" id="searchBox" placeholder="এখানে নাম, আইডি বা কোড লিখুন...">
+    <button onclick="performSearch()">সার্চ</button>
+    
+    <div id="result">ফলাফল এখানে প্রদর্শিত হবে...</div>
+</div>
+
+<script>
+    let cachedData = null;
+
+    // পেজ লোড হওয়ার সাথে সাথে JSON ফাইলটি মেমোরিতে লোড করে রাখা যাতে বারবার ডাউনলোড না হয়
+    async function loadData() {
+        if (!cachedData) {
+            document.getElementById('result').innerText = 'ডেটা লোড হচ্ছে, দয়া করে অপেক্ষা করুন...';
+            try {
+                // আপনার GitHub Raw ফাইলের লিংক এখানে দিন (অথবা লোকাল ফাইলের নাম)
+                let response = await fetch('data.json');
+                cachedData = await response.json();
+                document.getElementById('result').innerText = 'ডেটা সফলভাবে লোড হয়েছে। এখন সার্চ করতে পারেন।';
+            } catch (error) {
+                document.getElementById('result').innerText = 'ডেটা লোড করতে সমস্যা হয়েছে: ' + error;
+            }
+        }
+    }
+
+    loadData();
+
+    function performSearch() {
+        if (!cachedData) {
+            alert('ডেটা এখনও লোড হয়নি!');
+            return;
+        }
+
+        let query = document.getElementById('searchBox').value.trim().toLowerCase();
+        let resultDiv = document.getElementById('result');
+
+        if (query === '') {
+            resultDiv.innerText = 'দয়া করে কিছু লিখে সার্চ করুন।';
+            return;
+        }
+
+        // পুরো ডেটাসেট থেকে হুবহু বা মিলে যায় এমন একটি বা প্রথম ডেটা খোঁজা
+        let matchedItem = cachedData.find(item => 
+            Object.values(item).some(val => String(val).toLowerCase().includes(query))
+        );
+
+        if (matchedItem) {
+            // সুন্দরভাবে JSON ফরম্যাটে ফলাফল দেখানো
+            resultDiv.innerText = JSON.stringify(matchedItem, null, 4);
+        } else {
+            resultDiv.innerText = 'দুঃখিত, এই তথ্যের সাথে মিলارس কোনো ডেটা পাওয়া যায়নি।';
+        }
+    }
+</script>
+
+</body>
+</html>
